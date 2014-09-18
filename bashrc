@@ -1,1 +1,1 @@
-alias cpanm="colorist -E cpanm"
+alias cpanm="colorist -E -- cpanm"

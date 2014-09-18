@@ -1,0 +1,8 @@
+0.002   2014-09-18
+
+    * Bugfix: Command-line options were not working on cpanm
+
+0.001   2014-06-22
+
+    * Initial release.
+    * Includes ruleset and colors for: cpanm
