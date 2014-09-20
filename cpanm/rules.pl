@@ -20,7 +20,7 @@ ruleset {
         buildtask release status 
     );
 
-    rule qr{Successfully installed (\S+)}, qw( 
+    rule qr{Successfully .*installed (\S+)}, qw( 
         success release 
     );
 
