@@ -1,0 +1,7 @@
+---
+delete: maroon
+add: green
+position: teal
+message: red
+
+DEFAULT: ~
