@@ -16,4 +16,6 @@ version: fuschia
 modulelist: fuschia
 counter: lime
 
+error: red
+
 DEFAULT: ~

@@ -19,9 +19,9 @@ ruleset {
     rule qr{Building and testing (\S+) \.\.\. (\S+)}, qw( 
         buildtask release status 
     );
-
-    rule qr{Successfully .*installed (\S+)}, qw( 
-        success release 
+    
+    rule qr{Successfully .*installed (\S+)(\s+\(upgraded from (.*)\))?}, qw( 
+        success release version
     );
 
     rule qr{==> Found dependencies: (.*)}, qw( 
@@ -31,4 +31,6 @@ ruleset {
     rule qr{(\d+) distributions installed}, qw( 
         distsinstalled counter 
     );
+
+    rule qr{!.*}, qw( error );
 }
