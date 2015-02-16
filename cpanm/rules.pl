@@ -28,7 +28,7 @@ ruleset {
         founddeps modulelist 
     );
 
-    rule qr{(\d+) distributions installed}, qw( 
+    rule qr{(\d+) distributions? installed}, qw( 
         distsinstalled counter 
     );
 
