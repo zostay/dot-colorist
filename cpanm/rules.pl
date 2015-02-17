@@ -21,7 +21,7 @@ ruleset {
     );
     
     rule qr{Successfully .*installed (\S+)(\s+\(upgraded from (.*)\))?}, qw( 
-        success release version
+        success release success version
     );
 
     rule qr{==> Found dependencies: (.*)}, qw( 
