@@ -1,0 +1,32 @@
+---
+head: white
+border: navy
+
+date: teal
+app_name: teal
+module_name: aqua
+
+duration: white
+arrow: white
+args: white
+
+file: fuschia
+line: fuschia
+url: fuschia
+ip_address: fuschia
+method: fuschia
+
+ok_response: lime
+redirect_response: yellow
+not_ok_response: red
+
+at_message: gray
+error_message: yellow
+crit_message: red
+message: silver
+log_info: teal
+log_debug: blue
+log_warn: yellow
+log_error: red
+
+DEFAULT: ~
