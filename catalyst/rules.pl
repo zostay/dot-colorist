@@ -22,7 +22,12 @@ ruleset {
     );
 
     # Action Map
-    rule qr{\|\s+(/\S*)?\s+\|\s+([\w:]+)\s+\|\s+(\S+)\s+\|}, qw(
+    rule qr{\|\s+(/\S*)?\s+\|\s+([\w:-]+)\s+\|\s+(\S+)\s+\|}, qw(
+        border url module_name method
+    );
+
+    # Action Map (continuation)
+    rule qr{\|\s+(\S*)?\s+\|\s+([\w:-]+)\s+\|\s+\|}, qw(
         border url module_name method
     );
 
@@ -47,24 +52,36 @@ ruleset {
     rule qr{\[($cat_date)\] \[(\w+)\] \[([\w.]+)\] \[(INFO)\] .*}, qw(
         message date app_name module_name log_info
     );
+    rule qr{\[(info)\] .*}, qw(
+        message log_info
+    );
 
     # Catalyst debug log
     rule qr{\[($cat_date)\] \[(\w+)\] \[([\w.]+)\] \[(DEBUG)\] .*}, qw(
         message date app_name module_name log_debug
+    );
+    rule qr{\[(debug)\] .*}, qw(
+        message log_debug
     );
 
     # Catalyst warning log
     rule qr{\[($cat_date)\] \[(\w+)\] \[([\w.]+)\] \[(WARN)\] .*}, qw(
         error_message date app_name module_name log_warn
     );
+    rule qr{\[(warn)\] .*}, qw(
+        error_message log_warn
+    );
 
     # Catalyst error log
     rule qr{\[($cat_date)\] \[(\w+)\] \[([\w.]+)\] \[(ERROR)\] .*}, qw(
         error_message date app_name module_name log_error
     );
+    rule qr{\[(error)\] .*}, qw(
+        error_message log_error
+    );
 
-    # Starman announcing it is ready
-    rule qr{(Starman:) Accepting connections at (.*)}, qw(
+    # Server announcing it is ready
+    rule qr{([\w:]+) Accepting connections at (.*)}, qw(
         message module_name url
     );
 
