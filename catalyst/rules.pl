@@ -96,8 +96,13 @@ ruleset {
         crit_message date
     );
 
+    # highlight (hopefully) useful stack trace lines
+    rule qr{\s+(?!(?:Catalyst|Moose|Plack|Try|eval|Class|HTTP))([\w:]+.*?) called at (.*?) line (\d+)}, qw(
+        at_message module_name file line
+    );
+
     # stack trace line
-    rule qr{\s+.*? called at (.*?) line (\d+)}, qw(
+    rule qr{\s+.*? at (.*?) line (\d+)}, qw(
         at_message file line
     );
 
