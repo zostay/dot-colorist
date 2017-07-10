@@ -17,7 +17,7 @@ ruleset {
     );
 
     # Action execution
-    rule qr{\|\s+(->\s+)?(\S*)\s+\|\s+(\d\S+)\s+\|}, qw(
+    rule qr{\|\s+([-=]>\s+)?(\S*)\s+\|\s+(\d\S+)\s+\|}, qw(
         border arrow url duration
     );
 
@@ -97,7 +97,7 @@ ruleset {
     );
 
     # highlight (hopefully) useful stack trace lines
-    rule qr{\s+(?!(?:Catalyst|Moose|Plack|Try|eval|Class|HTTP))([\w:]+.*?) called at (.*?) line (\d+)}, qw(
+    rule qr{\s+(?!(?:Catalyst|Moose|Net::Server|Plack|Starman|Try|eval|Class|HTTP))([\w:]+.*?) called at (.*?) line (\d+)}, qw(
         at_message module_name file line
     );
 
@@ -129,17 +129,17 @@ ruleset {
     my $ap_date = qr{\d+/\w+/\d{4}:\d{2}:\d{2}:\d{2} [-+]\d+};
 
     # Combined log (2xx response)
-    rule qr{(::ffff:\d+\.\d+\.\d+\.\d+) \S+ \S+ \[($ap_date)\] "([^"]+)" (2\d+) \S+ "[^"]+".*}, qw(
+    rule qr{((?:::ffff:)?\d+\.\d+\.\d+\.\d+) \S+ \S+ \[($ap_date)\] "([^"]+)" (2\d+) \S+ "[^"]+".*}, qw(
         message ip_address date url ok_response
     );
 
     # Combined log (3xx response)
-    rule qr{(::ffff:\d+\.\d+\.\d+\.\d+) \S+ \S+ \[($ap_date)\] "([^"]+)" (3\d+) \S+ "[^"]+".*}, qw(
+    rule qr{((?:::ffff:)?\d+\.\d+\.\d+\.\d+) \S+ \S+ \[($ap_date)\] "([^"]+)" (3\d+) \S+ "[^"]+".*}, qw(
         message ip_address date url redirect_response
     );
 
     # Combined log (not 2xx/3xx response)
-    rule qr{(::ffff:\d+\.\d+\.\d+\.\d+) \S+ \S+ \[($ap_date)\] "([^"]+)" (\d+) \S+ "[^"]+".*}, qw(
+    rule qr{((?:::ffff:)?\d+\.\d+\.\d+\.\d+) \S+ \S+ \[($ap_date)\] "([^"]+)" (\d+) \S+ "[^"]+".*}, qw(
         error_message ip_address date url not_ok_response
     );
 }
