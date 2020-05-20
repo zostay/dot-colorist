@@ -1,3 +1,7 @@
+0.003   2020-05-20
+
+    * Adding support for docker.
+
 0.002   2014-09-18
 
     * Bugfix: Command-line options were not working on cpanm

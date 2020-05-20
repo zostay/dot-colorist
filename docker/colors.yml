@@ -1,0 +1,13 @@
+---
+hashtask: silver
+steptask: blue
+
+hashid: fuschia
+stepnum: aqua
+stepden: teal
+command: yellow
+arguments: silver
+
+error: red
+
+DEFAULT: ~
